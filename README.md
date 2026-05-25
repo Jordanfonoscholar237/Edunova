@@ -46,13 +46,14 @@ edunova_webapp/
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
+git clone https://github.com/Jordanfonoscholar237/Edunova.git
+
 ```
 
 Go into the project folder:
 
 ```bash
-cd YOUR-REPOSITORY-NAME
+cd Edunova
 ```
 
 Create a virtual environment:
