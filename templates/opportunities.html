@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}{{ page_title|default('Opportunities') }} | EDUNOVA{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">{{ page_title|default('Opportunities') }}</p><h1>Find scholarships, schools, internships, events, and mentorship.</h1><p>Use filters to explore opportunities that fit your level, field, and destination.</p></div></section>
+<section>
+  <div class="container">
+    <form class="filters" method="get" action="{{ url_for('opportunities') }}">
+      <input name="q" placeholder="Search by keyword" value="{{ q }}">
+      <select name="type">
+        <option value="">All types</option>
+        {% for item in ['Scholarship','School','Mentorship','Internship','Event'] %}
+        <option value="{{ item }}" {% if type_filter == item %}selected{% endif %}>{{ item }}</option>
+        {% endfor %}
+      </select>
+      <select name="region">
+        <option value="">All regions</option>
+        {% for item in ['Cameroon','Africa','Europe','United States / Canada','Asia','Online'] %}
+        <option value="{{ item }}" {% if region == item %}selected{% endif %}>{{ item }}</option>
+        {% endfor %}
+      </select>
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+    <div class="opportunity-grid">
+      {% for item in opportunities %}
+      <article class="card opportunity-card">
+        <div class="opportunity-top"><span class="pill">{{ item.type }}</span><span class="pill muted">{{ item.region }}</span></div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+        <div class="meta"><span>{{ item.level }}</span><span>{{ item.field }}</span><span>{{ item.deadline }}</span></div>
+        <div class="card-actions">
+          <a class="btn btn-outline btn-small" href="{{ url_for('opportunity_detail', opportunity_id=item.id) }}">View details</a>
+          {% if current_user %}
+          <form method="post" action="{{ url_for('save_opportunity', opportunity_id=item.id) }}"><button class="btn btn-soft btn-small" type="submit">{% if item.id in saved %}Saved{% else %}Save{% endif %}</button></form>
+          {% endif %}
+        </div>
+      </article>
+      {% else %}
+      <div class="empty">No opportunities found. Try another search.</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

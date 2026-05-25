@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Create Account | EDUNOVA{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">Student account</p><h1>Create your EDUNOVA profile.</h1><p>Fill in your basic information, academic background, and career prospects.</p></div></section>
+<section><div class="container auth-card card">
+<form method="post">
+  <h2>Basic information</h2>
+  <div class="form-grid">
+    <div><label>Full name</label><input name="full_name" required></div>
+    <div><label>Email</label><input type="email" name="email" required></div>
+    <div><label>WhatsApp</label><input name="whatsapp" placeholder="+237 ..."></div>
+    <div><label>Password</label><input type="password" name="password" required minlength="6"></div>
+    <div><label>City</label><input name="city" placeholder="Bamenda"></div>
+    <div><label>Country</label><input name="country" placeholder="Cameroon"></div>
+    <div><label>Preferred language</label><select name="language"><option>English</option><option>French</option><option>English and French</option></select></div>
+  </div>
+  <h2>Academic background</h2>
+  <div class="form-grid">
+    <div><label>Current level</label><select name="current_level"><option>Form 3 / Form 4</option><option>Form 5</option><option>Lower Sixth</option><option>Upper Sixth</option><option>Undergraduate Year 1</option><option>Undergraduate Year 2</option><option>Undergraduate Year 3</option><option>Master's Student</option><option>Graduate</option></select></div>
+    <div><label>School / University</label><input name="school"></div>
+    <div><label>Series / Field of study</label><input name="field_of_study" placeholder="Science, Arts, Business, Engineering"></div>
+    <div><label>Latest results / GPA</label><input name="latest_results"></div>
+    <div class="full"><label>Strong subjects</label><textarea name="strong_subjects"></textarea></div>
+  </div>
+  <h2>Career prospects</h2>
+  <div class="form-grid">
+    <div><label>Career interest</label><input name="career_interest" placeholder="Medicine, Law, Technology..."></div>
+    <div><label>Preferred destination</label><select name="preferred_destination"><option>Not sure yet</option><option>Cameroon</option><option>Africa</option><option>Europe</option><option>United States / Canada</option><option>Asia</option></select></div>
+    <div class="full"><label>Goals</label><textarea name="goals" placeholder="Tell us what guidance, scholarship, school, or opportunity you are looking for."></textarea></div>
+  </div>
+  <button class="btn btn-primary" type="submit">Create account</button>
+</form>
+</div></section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ item.title }} | EDUNOVA{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">{{ item.type }} - {{ item.region }}</p><h1>{{ item.title }}</h1><p>{{ item.description }}</p></div></section>
+<section><div class="container detail-grid">
+  <div class="card detail-card">
+    <h2>Opportunity details</h2>
+    <table class="info-table">
+      <tr><th>Type</th><td>{{ item.type }}</td></tr>
+      <tr><th>Region</th><td>{{ item.region }}</td></tr>
+      <tr><th>Level</th><td>{{ item.level }}</td></tr>
+      <tr><th>Field</th><td>{{ item.field }}</td></tr>
+      <tr><th>Deadline</th><td>{{ item.deadline }}</td></tr>
+      <tr><th>Requirements</th><td>{{ item.requirements }}</td></tr>
+    </table>
+    {% if current_user %}
+    <form method="post" action="{{ url_for('save_opportunity', opportunity_id=item.id) }}"><button class="btn btn-primary">{% if saved %}Remove from saved{% else %}Save opportunity{% endif %}</button></form>
+    {% else %}<a class="btn btn-primary" href="{{ url_for('login') }}">Login to save</a>{% endif %}
+  </div>
+  <aside class="card side-card"><h3>Need help?</h3><p>Contact EDUNOVA on WhatsApp to ask for guidance about this opportunity.</p><a class="btn btn-dark" href="https://wa.me/237693914501" target="_blank">WhatsApp EDUNOVA</a></aside>
+</div></section>
+{% endblock %}

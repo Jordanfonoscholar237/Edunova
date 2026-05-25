@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Edit Profile | EDUNOVA{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">Profile</p><h1>Update your student profile.</h1><p>Better information helps EDUNOVA recommend better opportunities.</p></div></section>
+<section><div class="container auth-card card"><form method="post">
+  <h2>Basic information</h2><div class="form-grid">
+    <div><label>Full name</label><input name="full_name" value="{{ user.full_name }}" required></div><div><label>WhatsApp</label><input name="whatsapp" value="{{ user.whatsapp or '' }}"></div><div><label>City</label><input name="city" value="{{ user.city or '' }}"></div><div><label>Country</label><input name="country" value="{{ user.country or '' }}"></div><div><label>Language</label><input name="language" value="{{ user.language or '' }}"></div>
+  </div><h2>Academic background</h2><div class="form-grid">
+    <div><label>Current level</label><input name="current_level" value="{{ user.current_level or '' }}"></div><div><label>School</label><input name="school" value="{{ user.school or '' }}"></div><div><label>Field of study</label><input name="field_of_study" value="{{ user.field_of_study or '' }}"></div><div><label>Latest results</label><input name="latest_results" value="{{ user.latest_results or '' }}"></div><div class="full"><label>Strong subjects</label><textarea name="strong_subjects">{{ user.strong_subjects or '' }}</textarea></div>
+  </div><h2>Career prospects</h2><div class="form-grid"><div><label>Career interest</label><input name="career_interest" value="{{ user.career_interest or '' }}"></div><div><label>Preferred destination</label><input name="preferred_destination" value="{{ user.preferred_destination or '' }}"></div><div class="full"><label>Goals</label><textarea name="goals">{{ user.goals or '' }}</textarea></div></div><button class="btn btn-primary">Save profile</button>
+</form></div></section>
+{% endblock %}

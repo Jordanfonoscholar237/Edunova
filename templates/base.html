@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}EDUNOVA{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a href="{{ url_for('home') }}" class="brand">
+      <span class="brand-icon">E</span>
+      <span><strong>EDU<span>NOVA</span></strong><small>Your Future. Our Mission.</small></span>
+    </a>
+    <button class="menu-toggle" data-menu-toggle>Menu</button>
+    <nav class="nav-links" data-nav-links>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('services') }}">Services</a>
+      <a href="{{ url_for('opportunities') }}">Opportunities</a>
+      <a href="{{ url_for('scholarships') }}">Scholarships</a>
+      <a href="{{ url_for('schools') }}">Schools</a>
+      <a href="{{ url_for('mentorship') }}">Mentorship</a>
+      {% if current_user %}
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        {% if is_admin %}<a href="{{ url_for('admin') }}">Admin</a>{% endif %}
+        <a class="btn btn-dark btn-small" href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a class="btn btn-primary btn-small" href="{{ url_for('register') }}">Create Account</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="container flash-wrap">
+  {% for category, message in messages %}
+  <div class="flash flash-{{ category }}">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<main>{% block content %}{% endblock %}</main>
+
+<footer class="footer" id="contact">
+  <div class="container footer-grid">
+    <div>
+      <h2>EDU<span>NOVA</span></h2>
+      <p>Career, education, scholarships, schools, and mentorship guidance for students in Cameroon and abroad.</p>
+    </div>
+    <div><h3>WhatsApp</h3><p>+237 693 914 501</p><p>+237 676 603 724</p></div>
+    <div><h3>Email</h3><p>jordanfonoscholar237@gmail.com</p></div>
+  </div>
+</footer>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

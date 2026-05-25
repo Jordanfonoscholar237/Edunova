@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Mentorship | EDUNOVA{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">Mentorship</p><h1>Learn from experts, alumni abroad, and success stories.</h1><p>Students can request guidance from people who understand the field they are interested in.</p></div></section>
+<section><div class="container split">
+  <div class="card detail-card"><h2>Request mentorship</h2>
+    <form method="post">
+      <label>Field or career area</label><input name="field" placeholder="Medicine, Tech, Law, Business..." required>
+      <label>Preferred mentor type</label><select name="mentor_type"><option>Alumni currently abroad</option><option>Career expert</option><option>Scholarship winner</option><option>University student</option></select>
+      <label>What guidance do you need?</label><textarea name="message" placeholder="Explain your question or the support you need." required></textarea>
+      <button class="btn btn-primary" type="submit">Submit request</button>
+    </form>
+  </div>
+  <div class="cards-2">
+    <div class="card service"><h3>Experts</h3><p>Understand career requirements and skills.</p></div>
+    <div class="card service"><h3>Alumni abroad</h3><p>Learn about study destinations and real student life.</p></div>
+    <div class="card service"><h3>Success stories</h3><p>Learn from people who overcame similar challenges.</p></div>
+    <div class="card service"><h3>Webinars</h3><p>Join group sessions, Q&A, and orientation programs.</p></div>
+  </div>
+</div></section>
+{% endblock %}

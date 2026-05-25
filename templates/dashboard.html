@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | EDUNOVA{% endblock %}
+{% block content %}
+<section class="dashboard-hero"><div class="container dash-top"><div><p class="eyebrow">Student dashboard</p><h1>Welcome, {{ user.full_name.split()[0] if user.full_name else 'Student' }}.</h1><p>{{ user.career_interest or 'Career interest not set' }} - {{ user.preferred_destination or 'Destination not set' }}</p></div><a class="btn btn-outline" href="{{ url_for('profile') }}">Edit profile</a></div></section>
+<section><div class="container dashboard-grid">
+  <aside class="card profile-summary"><div class="avatar">{{ user.full_name[0]|upper }}</div><h2>{{ user.full_name }}</h2><p>{{ user.email }}</p><p>{{ user.current_level }}</p><div class="progress"><span style="width: {{ completion }}%"></span></div><strong>{{ completion }}% profile complete</strong></aside>
+  <div class="dashboard-main">
+    <div class="cards-3 compact"><div class="card kpi"><strong>{{ matches|length }}</strong><span>Matches</span></div><div class="card kpi"><strong>{{ saved_items|length }}</strong><span>Saved</span></div><div class="card kpi"><strong>{{ requests|length }}</strong><span>Mentorship requests</span></div></div>
+    <div class="card panel"><h2>Recommended opportunities</h2><div class="opportunity-grid small-grid">{% for item in matches %}<article class="opportunity-card mini"><span class="pill">{{ item.type }}</span><h3>{{ item.title }}</h3><p>{{ item.description }}</p><a class="btn btn-outline btn-small" href="{{ url_for('opportunity_detail', opportunity_id=item.id) }}">View</a></article>{% else %}<p>Complete your profile to get better matches.</p>{% endfor %}</div></div>
+    <div class="card panel"><h2>Saved opportunities</h2>{% if saved_items %}<ul class="clean-list">{% for item in saved_items %}<li><a href="{{ url_for('opportunity_detail', opportunity_id=item.id) }}">{{ item.title }}</a><span>{{ item.type }}</span></li>{% endfor %}</ul>{% else %}<p>No saved opportunities yet.</p>{% endif %}</div>
+    <div class="card panel"><h2>Mentorship requests</h2>{% if requests %}<ul class="clean-list">{% for r in requests %}<li><strong>{{ r.field }}</strong><span>{{ r.status }} - {{ r.mentor_type }}</span></li>{% endfor %}</ul>{% else %}<p>No mentorship requests yet. <a href="{{ url_for('mentorship') }}">Request mentorship</a>.</p>{% endif %}</div>
+  </div>
+</div></section>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}EDUNOVA | Student Career and Education Guidance{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Career. Education. Scholarships. Mentorship.</p>
+      <h1>Discover your path. <span>Build your future.</span></h1>
+      <p class="hero-text">EDUNOVA helps high school and university students make informed choices, find opportunities, compare schools, and receive guidance from experts and alumni.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ url_for('register') }}">Create student account</a>
+        <a class="btn btn-outline" href="{{ url_for('opportunities') }}">Explore opportunities</a>
+      </div>
+      <div class="stats">
+        <div><strong>6+</strong><span>Core services</span></div>
+        <div><strong>Local + Abroad</strong><span>Opportunities</span></div>
+        <div><strong>Experts</strong><span>and alumni</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <p class="card-label">Student Success Hub</p>
+      <h2>One profile. Many opportunities.</h2>
+      <ul class="check-list">
+        <li>Create your student profile</li>
+        <li>Get matched with scholarships</li>
+        <li>Explore schools and destinations</li>
+        <li>Request mentorship from alumni</li>
+      </ul>
+      <div class="promise">Your future is not guessed. It is prepared.</div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container section-head">
+    <div><p class="eyebrow">What we do</p><h2>Support for every step.</h2></div>
+    <p>From career orientation to admission preparation, EDUNOVA gives students the direction, confidence, and network they need.</p>
+  </div>
+  <div class="container cards-3">
+    <div class="card service"><span>01</span><h3>Career orientation</h3><p>Understand your strengths, passions, and career possibilities.</p></div>
+    <div class="card service"><span>02</span><h3>Academic guidance</h3><p>Choose schools, programs, subjects, and study destinations.</p></div>
+    <div class="card service"><span>03</span><h3>Scholarship access</h3><p>Find and prepare for scholarships, internships, and youth opportunities.</p></div>
+  </div>
+</section>
+<section class="dark-section">
+  <div class="container split">
+    <div><p class="eyebrow">Experts and Alumni</p><h2>You will never walk alone.</h2><p>Students receive guidance from experts, alumni currently abroad, and success stories who understand the journey.</p></div>
+    <div class="cards-2">
+      <div class="glass-card">Field experts explain real career expectations.</div>
+      <div class="glass-card">Alumni abroad share practical experience.</div>
+      <div class="glass-card">Success stories motivate and guide students.</div>
+      <div class="glass-card">Students can request mentorship directly.</div>
+    </div>
+  </div>
+</section>
+<section class="cta-section">
+  <div class="container cta-box">
+    <h2>Start your journey today.</h2>
+    <p>Create your account, complete your profile, save opportunities, and request mentorship.</p>
+    <a class="btn btn-light" href="{{ url_for('register') }}">Create account</a>
+  </div>
+</section>
+{% endblock %}

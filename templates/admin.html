@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Admin | EDUNOVA{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">Admin</p><h1>EDUNOVA admin dashboard.</h1><p>Review students and mentorship requests.</p></div></section>
+<section><div class="container admin-grid">
+  <div class="card panel"><h2>Students</h2><div class="table-wrap"><table><thead><tr><th>Name</th><th>Email</th><th>WhatsApp</th><th>Level</th><th>Career</th></tr></thead><tbody>{% for s in students %}<tr><td>{{ s.full_name }}</td><td>{{ s.email }}</td><td>{{ s.whatsapp }}</td><td>{{ s.current_level }}</td><td>{{ s.career_interest }}</td></tr>{% endfor %}</tbody></table></div></div>
+  <div class="card panel"><h2>Mentorship requests</h2><div class="table-wrap"><table><thead><tr><th>Student</th><th>Field</th><th>Mentor</th><th>Status</th><th>Message</th></tr></thead><tbody>{% for r in requests %}<tr><td>{{ r.full_name }}<br>{{ r.email }}</td><td>{{ r.field }}</td><td>{{ r.mentor_type }}</td><td>{{ r.status }}</td><td>{{ r.message }}</td></tr>{% endfor %}</tbody></table></div></div>
+</div></section>
+{% endblock %}
