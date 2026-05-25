@@ -3,7 +3,11 @@
 EDUNOVA is a student career, education, scholarship, school discovery, and mentorship guidance platform designed to help students from high school through university make better academic and career decisions.
 
 The platform helps students create profiles, share their academic background, explore opportunities, save scholarships, and request guidance from experts and alumni.
+## Live Demo
 
+Access EDUNOVA here:
+
+https://edunova-ixpb.onrender.com/
 ## Features
 
 - Multi-page Flask web application
