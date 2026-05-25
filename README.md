@@ -1,28 +1,63 @@
 # EDUNOVA Flask Web App
 
-A complete multi-page web app for student career orientation, educational orientation, scholarships, schools, and mentorship.
+EDUNOVA is a student career, education, scholarship, school discovery, and mentorship guidance platform designed to help students from high school through university make better academic and career decisions.
 
-## What is included
+The platform helps students create profiles, share their academic background, explore opportunities, save scholarships, and request guidance from experts and alumni.
 
-- Python Flask backend
-- SQLite database
-- HTML templates
-- CSS styling
-- JavaScript interactions
-- Multi-page navigation
+## Features
+
+- Multi-page Flask web application
 - Student account creation and login
 - Student dashboard
-- Profile completion tracking
-- Academic background and career prospects
-- Opportunity search and filters
-- Save / unsave opportunities
+- Academic background and career profile
+- Career prospects and study destination tracking
+- Scholarship and opportunity listings
+- School and program discovery
+- Save and unsave opportunities
 - Mentorship request system
-- Admin page to view students and mentorship requests
+- Admin dashboard for managing students and mentorship requests
+- SQLite database for local development
+- HTML templates, CSS styling, and JavaScript interactions
 
-## Run locally
+## Tech Stack
+
+- Python
+- Flask
+- SQLite
+- HTML
+- CSS
+- JavaScript
+- Werkzeug security for password hashing
+
+## Project Structure
+
+```text
+edunova_webapp/
+  app.py
+  requirements.txt
+  README.md
+  templates/
+  static/
+  .gitignore
+```
+
+## Run Locally
+
+Clone the repository:
 
 ```bash
-cd edunova_webapp
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
+```
+
+Go into the project folder:
+
+```bash
+cd YOUR-REPOSITORY-NAME
+```
+
+Create a virtual environment:
+
+```bash
 python -m venv .venv
 ```
 
@@ -46,34 +81,70 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Run:
+Run the app:
 
 ```bash
 python app.py
 ```
 
-Open:
+Open in your browser:
 
 ```text
 http://127.0.0.1:5000
 ```
 
-## Admin
+## Admin Access
 
-Create an account using:
+Admin access is controlled through the `EDUNOVA_ADMIN_EMAIL` environment variable.
+
+For local development, set the admin email before running the application if you want to change the default admin account.
+
+## Environment Variables
+
+For production, set:
+
+```text
+EDUNOVA_SECRET_KEY=your-secure-secret-key
+EDUNOVA_ADMIN_EMAIL=your-admin-email@example.com
+```
+
+Do not upload private `.env` files, secret keys, database files, or student data to GitHub.
+
+## Deployment Notes
+
+Before public launch:
+
+- Use a strong `EDUNOVA_SECRET_KEY`
+- Use PostgreSQL instead of SQLite for real student data
+- Enable HTTPS
+- Add email verification
+- Add password reset
+- Protect student personal data
+- Deploy using Render, Railway, PythonAnywhere, or a VPS
+
+For deployment, add Gunicorn to `requirements.txt`:
+
+```text
+gunicorn==22.0.0
+```
+
+Example production start command:
+
+```bash
+gunicorn app:app
+```
+
+## Contact
+
+Email:
 
 ```text
 jordanfonoscholar237@gmail.com
 ```
 
-Then visit:
+WhatsApp:
 
 ```text
-http://127.0.0.1:5000/admin
++237 693 914 501
++237 676 603 724
 ```
-
-To change the admin email, set `EDUNOVA_ADMIN_EMAIL`.
-
-## Production notes
-
-Before public launch, use PostgreSQL, set a strong `EDUNOVA_SECRET_KEY`, enable HTTPS, add email verification, and deploy to Render, Railway, PythonAnywhere, or a VPS.
